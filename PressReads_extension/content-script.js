@@ -11,15 +11,24 @@ getCurrentTab()
     .catch((error) => {console.log("error")})*/
 
 
-chrome.runtime.onMessage.addListener(
+/*chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse){
         console.log("got message")
 
-        if(request.task === "changecolor"){
-            document.body.style.backgroundColor = 'orange';
-            sendResponse({status: "success"});
+        if(request.task === "getSelect"){
+            //document.body.style.backgroundColor = 'orange';
+            sendResponse({data: window.getSelection().toString()});
         }
+        else
+            sendResponse({})
 
     }
 )
 
+
+var selText = '';
+if(document.getSelection){
+    selText = document.getSelection().toString();
+    console.log(selText)
+}*/
+console.log('yeet');
