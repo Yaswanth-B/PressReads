@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+    height: 300px;
+    width: 350px;
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px;
+ 
+}
+
+#btn{
+    height: 45px;
+    width: 60px;
+    padding: 5px;
+    margin: 3px;
+}
+
+#main-div{
+    height: 200px;
+    width: 90%;
+    overflow: scroll;
+    display: flex;
+    align-items: center;
+}
