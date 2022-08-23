@@ -9,9 +9,18 @@ With the reducing attention span of the audience, citizens are increasingly look
 # Proposed Solution
 A Chrome Extension to provide summarized press releases 
 to the public.  
-➔ Summarize news articles and press releases based on selected 
+Summarize news articles and press releases based on selected 
 text.  
-➔ Provide user with link to full scale website with summarized 
-press releases and option to summarize their own article, papers 
-etc.  
-➔ Integrate with translation tool to provide translated summaries
+Provide user with link to website with summarized and verified
+press releases.  
+Integrate with translation tool to provide translated summaries.  
+# Built with  
+Python  
+Tensorflow, Keras  
+FastAPI   
+Heroku  
+React JS  
+HTML/CSS  
+# Flow Diagram
+![User (5)](https://user-images.githubusercontent.com/108296584/186104714-95488a61-787f-4cc6-9a75-2bf2cb2a9570.png)
+  
