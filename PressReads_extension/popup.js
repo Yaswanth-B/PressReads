@@ -43,15 +43,35 @@
           body: JSON.stringify(data)
       }
       
-      
+      var summText
       fetch('https://sih-hackathon-api.herokuapp.com/bow_summarise_text/', options)
       .then((response) => {
           response.json().then(function(json){
-            document.getElementById('para').innerHTML = JSON.stringify(json.summary);  
+            var pc = JSON.stringify(json.summary); 
+            summText = pc.slice(1, pc.length-1) 
+            console.log(summText)
+
+              fetch("https://libretranslate.com/translate", {
+                method: "POST",
+                body: JSON.stringify({
+                    q: summText,
+                    source: "en",
+                    target: "hi",
+                    format: "text",
+                    api_key: "5f58a04f-c45c-4e87-ac75-bcdc07110851"
+                }),
+                headers: { "Content-Type": "application/json" }
+            }).then((res)=>{
+                res.json().then(data =>document.getElementById('para').innerHTML = data.translatedText)
+            })
           })
        //  console.log(res.summary_from_url)
+
+          
       })
       .catch((error) => console.log(error))
+
+
       
       };
       
