@@ -1,5 +1,6 @@
 import Bloglist from "./Cardfn";
 import { useState } from 'react';
+import "./review.css";
 const Review = () => {
   const[blogs, setBlogs]=useState([
       { title: 'India’s Cumulative COVID-19 Vaccination Coverage exceeds 209.67 Cr', body: 'COVID-19 vaccination for the age group 12-14 years was started on 16 March, 2022. So far, more than 3.99 Cr (3,99,63,095) adolescents have been administered with the first dose of COVID-19 vaccine.Similarly, the COVID-19 precaution dose administration for age group 18-59 years also started from 10th April, 2022 onwards.', author: 'Ministry of health and Family Welfare', id: 1 },
