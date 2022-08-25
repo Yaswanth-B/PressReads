@@ -1,17 +1,24 @@
 <html>
     <head>
     <link rel="stylesheet" href="popup.css">
-    <style>
-       
-    </style>
     </head>
-    <body>
+    <body> 
         
-        <h1>
-            <span style="color: #DE3163">Espresso</span>Bytes
+        <h1 id ="logo">
+            <span style="color: #f89426">Espresso</span><span style="color: #469e98">Byte</span>
         </h1>
         <div id ='main-div'><p id="para"></p></div>
-        <button id = 'btn'>Click Me</button>
+        <div class = 'btn-group'>
+            <button id = 'btn'>Summarize</button>
+            <select id="lang" class = "options">
+                <option value = "en" selected>English</option>
+                <option value = "hi">Hindi</option>
+                <option value="te" >Telugu</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malayalam</option>
+                <option value = "ta">Tamil</option>
+            </select>
+        </div>
         <script src="popup.js"></script>
     </body>
 </html>

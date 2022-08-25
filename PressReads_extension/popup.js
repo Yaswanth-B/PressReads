@@ -1,25 +1,9 @@
-/*document.getElementById('btn').onclick =  async()=>{
-        //let tabs = await chrome.tabs.query({active: true, currentWindow: true})
-       let result
-        try{
-            /*[{result}] = await chrome.scripting.executeScript({
-                target : {tabId : tabs.id},
-                function: ()=> window.getSelection().toString()
-            })
-
-            result = document.getSelection().toString()
-        }
-        catch(e){
-            console.log("ERROR")
-        }
-
-       console.log(result)
-        document.body.append(result)
-    }*/
 
     let result;
-  
-    document.getElementById("btn").onclick = async () => {
+    
+    
+
+    document.getElementById('btn').onclick = async () => {
         const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
        
         try {
@@ -49,21 +33,23 @@
           response.json().then(function(json){
             var pc = JSON.stringify(json.summary); 
             summText = pc.slice(1, pc.length-1) 
-            console.log(summText)
-
-              fetch("https://libretranslate.com/translate", {
-                method: "POST",
-                body: JSON.stringify({
-                    q: summText,
-                    source: "en",
-                    target: "hi",
-                    format: "text",
-                    api_key: "5f58a04f-c45c-4e87-ac75-bcdc07110851"
-                }),
-                headers: { "Content-Type": "application/json" }
-            }).then((res)=>{
-                res.json().then(data =>document.getElementById('para').innerHTML = data.translatedText)
-            })
+          console.log(summText)
+            var transTo = document.getElementById('lang').value
+            console.log(transTo)
+            fetch("https://translate-pressread.herokuapp.com/get_translation/", {
+              method: "POST",
+              body: JSON.stringify({
+                  text: summText,
+                  src: "en",
+                  dest: transTo,
+              }),
+              headers: { "Content-Type": "application/json" }
+          }).then((res)=>{
+              res.json().then(data =>{ 
+                var dd =  JSON.stringify(data.translation)
+                var dslice = dd.slice(1, dd.length-1)
+                document.getElementById('para').innerHTML = dslice })
+          })
           })
        //  console.log(res.summary_from_url)
 
