@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 html,body{
-    display: grid;
     height: 100%;
     width: 100%;
     place-items: center;
-    background: -webkit-linear-gradient(left, #48ADA5, #F99426);
+    background-color: whitesmoke;
+    margin:0px;
+    padding:0px;
   }
 
   
@@ -13,6 +15,7 @@ html,body{
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background: -webkit-linear-gradient(left, #48ADA5, #F99426);
   }
   
   .Auth-form {

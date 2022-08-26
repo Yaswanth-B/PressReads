@@ -1,8 +1,5 @@
 
     let result;
-    
-    
-
     document.getElementById('btn').onclick = async () => {
         const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
        
@@ -28,12 +25,12 @@
       }
       
       var summText
-      fetch('https://sih-hackathon-api.herokuapp.com/bow_summarise_text/', options)
+      fetch('http://127.0.0.1:5000/get_pegasus/', options)
       .then((response) => {
           response.json().then(function(json){
-            var pc = JSON.stringify(json.summary); 
-            summText = pc.slice(1, pc.length-1) 
-          console.log(summText)
+            var pc = JSON.stringify(json.pegasus_summary); 
+           summText = pc.slice(1, pc.length-1) 
+          console.log(pc)
             var transTo = document.getElementById('lang').value
             console.log(transTo)
             fetch("https://translate-pressread.herokuapp.com/get_translation/", {
@@ -47,18 +44,12 @@
           }).then((res)=>{
               res.json().then(data =>{ 
                 var dd =  JSON.stringify(data.translation)
-                var dslice = dd.slice(1, dd.length-1)
+                var dslice = dd.slice(3, dd.length-3)
                 document.getElementById('para').innerHTML = dslice })
           })
           })
-       //  console.log(res.summary_from_url)
-
-          
       })
-      .catch((error) => console.log(error))
-
-
-      
+      .catch((error) => console.log(error))      
       };
       
         

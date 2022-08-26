@@ -1,6 +1,17 @@
-import React from 'react'
+import {React, useState} from 'react'
 // import Search from './search'
-function Auth() {   
+import { Link } from 'react-router-dom'
+
+
+function Auth() { 
+    const [password, setPwd] = useState('');
+    const [email, setEmail] = useState('');
+    function handleSubmit(){
+        if(password == ''||email == '')
+         alert('Must enter email and password!')
+        else
+            window.location.href = './review'
+    }
   return (
     <div className="Auth-form-container">
         <form className="Auth-form">
@@ -10,7 +21,7 @@ function Auth() {
                 </h3>
                 {/* <Search/> */}
                 <label >Ministry</label>
-                <select class="form-control">
+                <select class="form-control" >
                 <option selected="selected" value="0">All Ministry </option>
                     <option value="1">President&#39;s Secretariat</option>
                     <option value="2">Vice President&#39;s Secretariat</option>
@@ -103,16 +114,20 @@ function Auth() {
                 </select>
                 <div className="form-group mt-3">
                     <label >Email Address</label>
-                    <input type="email" className="form-control mt-1" placeholder="Enter email" />
+                    <input type="email" className="form-control mt-1" placeholder="Enter email"
+                    onChange={e => setEmail(e.target.value)} />
                 </div>
                 <div className="form-group mt-3">
                 <label >Password</label>
-                    <input type="password" className="form-control mt-1" placeholder="Enter password" />
+                    <input type="password" className="form-control mt-1" placeholder="Enter password" 
+                    onChange={e => setPwd(e.target.value)}/>
                 </div>
                 <div className="d-grip gap-2 mt-3">
-                    <button className="btn btn-primary">
-                        Submit
+                   
+                    <button className="btn btn-primary" type="button" onClick={handleSubmit}>
+                      Submit
                     </button>
+                    
                 </div>
                 <p className="forgot-password text-right mt-2">
                     Forgot <a href="#">Password?</a>
